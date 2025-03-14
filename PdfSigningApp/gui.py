@@ -2,7 +2,6 @@ import customtkinter as ctk
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import messagebox
-import pdf_sign as ps
 from usb_monitor import USBMonitor
 from PIL import Image, ImageTk
 
@@ -99,7 +98,6 @@ class PAdESSigningApp(ctk.CTk):
 
         # TODO: Button functionality
         print("Sign PDF")
-        ps.sign_pdf(self.pdf_to_sign)
 
     def choose_pdf_func(self):
         # Choose .pdf file
