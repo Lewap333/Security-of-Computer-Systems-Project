@@ -1,5 +1,5 @@
-from Crypto.PublicKey import RSA
-from Crypto.Signature import pkcs1_15
+from Cryptodome.PublicKey import RSA
+from Cryptodome.Signature import pkcs1_15
 from PyPDF2 import PdfReader, PdfWriter
 import utils
 import os

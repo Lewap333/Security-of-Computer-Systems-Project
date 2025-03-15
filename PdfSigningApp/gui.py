@@ -24,7 +24,7 @@ class PAdESSigningApp(ctk.CTk):
         self.label_icon = None
 
         self.pdf_to_sign = None
-
+        self.private_key_path = None
 
         # Window sizes
         window_width = 600
