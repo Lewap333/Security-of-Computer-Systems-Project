@@ -6,7 +6,7 @@ import win32gui
 import threading
 
 # Extensions that may contain private keys
-PRIVATE_KEY_EXTENSIONS = (".pem", ".key")
+PRIVATE_KEY_EXTENSIONS = ".pem"
 
 # Windows USB Events
 # https://learn.microsoft.com/en-us/windows/win32/devio/wm-devicechange
@@ -39,13 +39,10 @@ class USBMonitor:
         # Store initially connected drivers.
         self.current_drives = get_removable_drives()
 
-        self.key_file_drive = None
         self.key_file_path = None
-
+        self.key_file_drive = None
         # Update UI
         self.update_ui = update_ui
-
-        self.initial_key_check()
 
     def start_monitoring(self):
         """Monitoring USB plug/unplug events in a separate thread."""
@@ -119,3 +116,9 @@ class USBMonitor:
                 break
 
         self.update_ui(found_key)
+
+    def get_key_file_path(self):
+        return self.key_file_path
+
+    def get_key_file_drive(self):
+        return self.key_file_drive

@@ -76,6 +76,8 @@ class GenerateKeysFrame(ctk.CTkFrame):
         if dir_path:
             self.dir_path = dir_path
             dir_text = os.path.basename(os.path.normpath(dir_path))
+            if len(dir_text) > 36:
+                dir_text = '...%s' % dir_text[-33:]
             self.dir_label.configure(text="Destination folder: " + dir_text)
 
     def gen_keys_btn(self):
@@ -114,6 +116,8 @@ class GenerateKeysFrame(ctk.CTkFrame):
         """
         utils.generate_key_pair(self.dir_path, pwd)
         dir_text = os.path.basename(os.path.normpath(self.dir_path))
+        if len(dir_text) > 36:
+            dir_text = '...%s' % dir_text[-33:]
         self.running_animation = False
         self.dir_label.configure(text="Key pair generated at: " + dir_text)
         self.generate_button.configure(state="normal")

@@ -17,9 +17,10 @@ def verify_pdf(pdf_path, public_key_path):
     reader = PdfReader(pdf_path)
     metadata = reader.metadata
 
-    stored_signature = metadata.pop("/Signature")
-    if not stored_signature:
-        print("No hash found in metadata!")
+    try:
+        stored_signature = metadata.pop("/Signature")
+    except KeyError:
+        print("No signature in given file")
         return False
 
     signature_bytes = bytes.fromhex(stored_signature)
@@ -40,9 +41,9 @@ def verify_pdf(pdf_path, public_key_path):
 
     with open(public_key_path, "rb") as f:
         public_key_data = f.read()
-    public_key = RSA.import_key(public_key_data)
 
     try:
+        public_key = RSA.import_key(public_key_data)
         pkcs1_15.new(public_key).verify(new_hash, signature_bytes)
         print("Signature is valid! File not modified! ✅")
         return True

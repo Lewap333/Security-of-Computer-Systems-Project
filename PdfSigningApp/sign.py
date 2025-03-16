@@ -49,7 +49,7 @@ def sign_pdf(pdf_path, private_key_path, pwd):
     normalize_pdf(pdf_path, normalized_pdf_path)
 
     file_hash = utils.create_pdf_hash(normalized_pdf_path)
-    print(f"Input file hash = {file_hash.hexdigest()}")
+    # print(f"Input file hash = {file_hash.hexdigest()}")
 
     try:
         signed_hash = utils.sign_hash_with_pkey(
@@ -57,11 +57,14 @@ def sign_pdf(pdf_path, private_key_path, pwd):
             file_hash,
             pwd
         )
-        print(f"Signed hash = {signed_hash}")
+        # print(f"Signed hash = {signed_hash}")
         add_signature_to_metadata(normalized_pdf_path, singed_pdf_path, signed_hash)
-        # Remove unnecessary normalized copy
+
         os.remove(normalized_pdf_path)
+
+        return True
     except ValueError:
-        # Remove unnecessary normalized copy
         os.remove(normalized_pdf_path)
         print("Error: Wrong private key password!")
+
+        return False
