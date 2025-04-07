@@ -1,3 +1,5 @@
+import time
+
 from Cryptodome.Hash import SHA256
 from Cryptodome.PublicKey import RSA
 from Cryptodome.Signature import pkcs1_15
@@ -16,13 +18,20 @@ def create_pdf_hash(pdf_path):
 
 def generate_key_pair(dir_path, pwd):
 
+    start = time.time()
+
     key = RSA.generate(4096)
 
+    print(f"Czas generowania RSA: {time.time() - start:.2f} sekundy")
+
+    start = time.time()
     private_key_encrypted = key.export_key(
         passphrase=pwd,
         pkcs=8,
         protection="scryptAndAES256-CBC"
     )
+
+    print(f"Czas AES: {time.time() - start:.2f} sekundy")
 
     public_key = key.publickey().export_key()
 

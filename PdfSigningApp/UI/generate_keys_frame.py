@@ -75,10 +75,9 @@ class GenerateKeysFrame(ctk.CTkFrame):
         dir_path = fd.askdirectory()
         if dir_path:
             self.dir_path = dir_path
-            dir_text = os.path.basename(os.path.normpath(dir_path))
-            if len(dir_text) > 36:
-                dir_text = '...%s' % dir_text[-33:]
-            self.dir_label.configure(text="Destination folder: " + dir_text)
+            if len(dir_path) > 36:
+                dir_text = '...%s' % dir_path[-33:]
+            self.dir_label.configure(text="Destination folder: " + dir_path)
 
     def gen_keys_btn(self):
         """
@@ -106,7 +105,7 @@ class GenerateKeysFrame(ctk.CTkFrame):
         """
         if self.running_animation:
             dots = ["", ".", "..", "..."]
-            current_text = "Generating keys" + dots[int(time.time() % 4)]
+            current_text = "Generating key pair" + dots[int(time.time() % 4)]
             self.dir_label.configure(text=current_text)
             self.after(500, self.gen_animation)
 
@@ -115,7 +114,7 @@ class GenerateKeysFrame(ctk.CTkFrame):
         Thread function for key generation and updating label after its finished
         """
         utils.generate_key_pair(self.dir_path, pwd)
-        dir_text = os.path.basename(os.path.normpath(self.dir_path))
+        dir_text = self.dir_path
         if len(dir_text) > 36:
             dir_text = '...%s' % dir_text[-33:]
         self.running_animation = False

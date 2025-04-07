@@ -74,7 +74,7 @@ class SignFrame(ctk.CTkFrame):
         # Choose .pdf file
         self.pdf_to_sign = fd.askopenfilename(title="Choose PDF file", filetypes=[("PDF files", "*.pdf")])
 
-        label_text = os.path.basename(self.pdf_to_sign)
+        label_text = self.pdf_to_sign
         if len(label_text) > 36:
             label_text = '...%s' % label_text[-33:]
         self.selected_file_label.configure(text=os.path.basename(label_text))
@@ -102,9 +102,13 @@ class SignFrame(ctk.CTkFrame):
         self.sign_button.configure(state="normal")
 
     def view_with_private_key(self):
-        key = os.path.basename(self.usb_monitor.get_key_file_path())
-        drive = self.usb_monitor.get_key_file_drive()
-        self.info.configure(text=f"Private key found: \"{key}\" on drive: \"{drive}\"")
+        key = self.usb_monitor.get_key_file_path()
+
+        label_text = key
+        if len(label_text) > 36:
+            label_text = '...%s' % label_text[-33:]
+
+        self.info.configure(text=f"Private key found: {label_text}")
         self.select_file_button.configure(state="normal")
         self.sign_button.configure(state="normal")
 
