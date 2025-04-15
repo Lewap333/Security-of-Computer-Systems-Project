@@ -20,7 +20,7 @@ def normalize_pdf(input_path, output_path):
 
 
 def add_signature_to_metadata(pdf_path, output_path, signature):
-    """Adds created hash to metadata with key "/Signature" and preserves existing one."""
+    """Adds created hash to metadata with key "/Signature"."""
     reader = PdfReader(pdf_path)
     metadata = reader.metadata
     writer = PdfWriter()

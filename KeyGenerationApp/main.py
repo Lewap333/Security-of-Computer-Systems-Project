@@ -1,7 +1,5 @@
 import customtkinter as ctk
-from UI.main_menu_frame import MainMenu
-from UI.sign_frame import SignFrame
-from UI.verify_frame import VerifyFrame
+from UI.generate_keys_frame import GenerateKeysFrame
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -30,17 +28,9 @@ class MainApp(ctk.CTk):
 
         self.frames = {}
 
-        for F in (MainMenu, SignFrame, VerifyFrame):
-            page_name = F.__name__
-            frame = F(parent=self.container, controller=self)
-            self.frames[page_name] = frame
-
-            # puts pages in the same location
-            # the one on the top of the stacking order
-            # will be the one that is visible.
-            frame.grid(row=0, column=0, sticky="nsew")
-
-        self.show_frame("MainMenu")
+        self.frames["GenerateKeysFrame"] = GenerateKeysFrame(self.container, controller=self)
+        self.frames["GenerateKeysFrame"].grid(row=0, column=0, sticky="nsew")
+        self.show_frame("GenerateKeysFrame")
 
     def show_frame(self, page_name):
         """Shows a frame for the given page name"""

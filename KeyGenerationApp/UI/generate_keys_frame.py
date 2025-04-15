@@ -1,20 +1,20 @@
 import customtkinter as ctk
 from tkinter import filedialog as fd
 from UI.password_dialog import PasswordDialog
-import os
 import threading
 import time
 import utils
+from usb_monitor import USBMonitor
 
 
 class GenerateKeysFrame(ctk.CTkFrame):
     def __init__(self, parent, controller):
         """
         Sets up buttons for:
-        - selecting destination folder for key pair
+        - selecting destination folder for public key
         - generating key pair if folder is specified
         - going back to main menu
-        Before generation user is asked for password.
+        Before generation of private key user is asked for password.
         Generating keys is done in a separate thread.
         """
         super().__init__(parent)
@@ -28,20 +28,38 @@ class GenerateKeysFrame(ctk.CTkFrame):
                              font=("Arial", 30, "bold"))
         title.pack(pady=5)
 
-        self.dir_label = ctk.CTkLabel(self, text="Choose a folder to store your key pair",
+        self.private_key_label = ctk.CTkLabel(self, text="Insert USB drive for your private key",
+                                              fg_color="transparent",
+                                              height=(controller.get_height() / 7),
+                                              width=controller.get_width(),
+                                              font=("Arial", 25))
+
+        self.private_key_label.pack(pady=5)
+
+        self.pub_label = ctk.CTkLabel(self, text="Select folder for public key",
                                       fg_color="transparent",
                                       height=(controller.get_height() / 7),
                                       width=controller.get_width(),
                                       font=("Arial", 25))
 
-        self.dir_label.pack(pady=5)
+        self.pub_label.pack(pady=5)
 
-        self.dir_select_button = ctk.CTkButton(self, text="Select folder",
+        self.file_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.file_frame.pack()
+
+        self.selected_dir_label = ctk.CTkLabel(self.file_frame, text="Folder not selected",
+                                               fg_color="transparent",
+                                               height=(controller.get_height() / 8),
+                                               width=(controller.get_width() / 4),
+                                               font=("Arial", 25))
+        self.selected_dir_label.pack(padx=10, pady=5, side="right")
+
+        self.select_dir_button = ctk.CTkButton(self.file_frame, text="Select folder",
                                                font=("Arial", 25),
                                                height=(controller.get_height() / 8),
                                                width=(controller.get_width() / 4),
                                                command=self.select_dir_btn)
-        self.dir_select_button.pack(pady=5)
+        self.select_dir_button.pack(padx=10, pady=5, side="left")
 
         self.generate_button = ctk.CTkButton(self, text="Generate Keys",
                                              font=("Arial", 25),
@@ -59,12 +77,10 @@ class GenerateKeysFrame(ctk.CTkFrame):
 
         self.running_animation = False
 
-        back_button = ctk.CTkButton(self, text="Back to Menu",
-                                    font=("Arial", 25),
-                                    height=(controller.get_height() / 8),
-                                    width=(controller.get_width() / 4),
-                                    command=lambda: controller.show_frame("MainMenu"))
-        back_button.pack(pady=5)
+        self.usb_monitor = USBMonitor(self.update_ui)
+        self.usb_monitor.start_monitoring()
+        self.usb_monitor.initial_drive_check()
+
 
     def select_dir_btn(self):
         """
@@ -77,7 +93,7 @@ class GenerateKeysFrame(ctk.CTkFrame):
             self.dir_path = dir_path
             if len(dir_path) > 36:
                 dir_text = '...%s' % dir_path[-33:]
-            self.dir_label.configure(text="Destination folder: " + dir_path)
+            self.selected_dir_label.configure(dir_path)
 
     def gen_keys_btn(self):
         """
@@ -85,7 +101,7 @@ class GenerateKeysFrame(ctk.CTkFrame):
         Buttons for key gen and dir select are disabled until generation finishes
         """
         self.generate_button.configure(state="disabled")
-        self.dir_select_button.configure(state="disabled")
+        self.select_dir_button.configure(state="disabled")
         if self.dir_path:
             dialog = PasswordDialog(self, "Encrypt Private Key")
             self.wait_window(dialog)
@@ -97,7 +113,7 @@ class GenerateKeysFrame(ctk.CTkFrame):
                 return
 
         self.generate_button.configure(state="normal")
-        self.dir_select_button.configure(state="normal")
+        self.select_dir_button.configure(state="normal")
 
     def gen_animation(self):
         """
@@ -106,18 +122,36 @@ class GenerateKeysFrame(ctk.CTkFrame):
         if self.running_animation:
             dots = ["", ".", "..", "..."]
             current_text = "Generating key pair" + dots[int(time.time() % 4)]
-            self.dir_label.configure(text=current_text)
+            self.private_key_label.configure(text=current_text)
             self.after(500, self.gen_animation)
 
     def gen_thread(self, pwd):
         """
         Thread function for key generation and updating label after its finished
         """
-        utils.generate_key_pair(self.dir_path, pwd)
-        dir_text = self.dir_path
-        if len(dir_text) > 36:
-            dir_text = '...%s' % dir_text[-33:]
+        utils.generate_key_pair(self.dir_path,self.usb_monitor.get_drive(), pwd)
+
         self.running_animation = False
-        self.dir_label.configure(text="Key pair generated at: " + dir_text)
+        self.private_key_label.configure(text="Key pair generated!")
         self.generate_button.configure(state="normal")
-        self.dir_select_button.configure(state="normal")
+        self.select_dir_button.configure(state="normal")
+
+    def update_ui(self, usb_found):
+        if usb_found:
+            self.view_with_USB()
+        else:
+            self.view_without_USB()
+
+
+    def view_with_USB(self):
+        self.private_key_label.configure(text="USB drive found, " + self.usb_monitor.get_drive() + " !")
+        if self.dir_path:
+            self.generate_button.configure(state="disabled")
+        else:
+            self.generate_button.configure(state="normal")
+        self.select_dir_button.configure(state="normal")
+
+    def view_without_USB(self):
+        self.private_key_label.configure(text="Insert USB drive for your private key")
+        self.generate_button.configure(state="disabled")
+        self.select_dir_button.configure(state="disabled")
