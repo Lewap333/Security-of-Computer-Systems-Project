@@ -1,0 +1,124 @@
+\doxysection{generate\+\_\+keys\+\_\+frame.\+Generate\+Keys\+Frame Class Reference}
+\hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame}{}\label{classgenerate__keys__frame_1_1_generate_keys_frame}\index{generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}}
+
+
+A customtkinter frame for RSA key pair generation with USB support.  
+
+
+Inheritance diagram for generate\+\_\+keys\+\_\+frame.\+Generate\+Keys\+Frame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classgenerate__keys__frame_1_1_generate_keys_frame}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgenerate__keys__frame_1_1_generate_keys_frame_a0377abd6329a5374d421c761f2a51e75}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, parent, controller)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a86582c12716b52fe748ca48e86ca6225}\label{classgenerate__keys__frame_1_1_generate_keys_frame_a86582c12716b52fe748ca48e86ca6225} 
+{\bfseries select\+\_\+dir\+\_\+btn} (self)
+\begin{DoxyCompactList}\small\item\em Opens a dialog to select folder where the public key will be stored. \end{DoxyCompactList}\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a966e2df00177692126603deef311d216}\label{classgenerate__keys__frame_1_1_generate_keys_frame_a966e2df00177692126603deef311d216} 
+{\bfseries gen\+\_\+keys\+\_\+btn} (self)
+\begin{DoxyCompactList}\small\item\em Starts password dialog and then launches key generation in a separate thread. \end{DoxyCompactList}\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a564d400dc52f38504d83aa3915f1756e}\label{classgenerate__keys__frame_1_1_generate_keys_frame_a564d400dc52f38504d83aa3915f1756e} 
+{\bfseries gen\+\_\+animation} (self)
+\begin{DoxyCompactList}\small\item\em Updates the UI text label with a dot animation while keys are generating. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgenerate__keys__frame_1_1_generate_keys_frame_a82cbd608bc35fce810de6802dc0229c6}{gen\+\_\+thread}} (self, pwd)
+\begin{DoxyCompactList}\small\item\em Worker thread that generates RSA key pair using {\ttfamily \doxylink{_key_generation_app_2utils_8py_a7dd57cea0c8769441e59fb6fb6d31837}{utils.\+generate\+\_\+key\+\_\+pair}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classgenerate__keys__frame_1_1_generate_keys_frame_afb1f227bb67edcc3481cfedd2d8dd396}{update\+\_\+ui}} (self, usb\+\_\+found)
+\begin{DoxyCompactList}\small\item\em Callback for USB monitor to update interface based on drive availability. \end{DoxyCompactList}\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a0dd39363467819b4daa1efad7a3d80f3}\label{classgenerate__keys__frame_1_1_generate_keys_frame_a0dd39363467819b4daa1efad7a3d80f3} 
+{\bfseries view\+\_\+with\+\_\+\+USB} (self)
+\begin{DoxyCompactList}\small\item\em Sets UI state when USB is found. \end{DoxyCompactList}\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_acf67a6823cf8193163af922562c06e9c}\label{classgenerate__keys__frame_1_1_generate_keys_frame_acf67a6823cf8193163af922562c06e9c} 
+{\bfseries view\+\_\+without\+\_\+\+USB} (self)
+\begin{DoxyCompactList}\small\item\em Sets UI state when USB is not detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_ab5511c3415363e18ddc5449524156c45}\label{classgenerate__keys__frame_1_1_generate_keys_frame_ab5511c3415363e18ddc5449524156c45} 
+{\bfseries dir\+\_\+path} = None
+\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a36b146db8aea2e7dc30be3296b54b692}\label{classgenerate__keys__frame_1_1_generate_keys_frame_a36b146db8aea2e7dc30be3296b54b692} 
+{\bfseries usb\+\_\+monitor} = \mbox{\hyperlink{classusb__monitor_1_1_u_s_b_monitor}{USBMonitor}}(self.\+update\+\_\+ui)
+\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_ab903f44a229335a9df4c7d508b193318}\label{classgenerate__keys__frame_1_1_generate_keys_frame_ab903f44a229335a9df4c7d508b193318} 
+bool {\bfseries running\+\_\+animation} = True
+\item 
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_ad856561bb522c68e31cec8ffd65b6e50}\label{classgenerate__keys__frame_1_1_generate_keys_frame_ad856561bb522c68e31cec8ffd65b6e50} 
+{\bfseries gen\+\_\+animation}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A customtkinter frame for RSA key pair generation with USB support. 
+
+Provides UI for\+:
+\begin{DoxyItemize}
+\item selecting public key destination
+\item monitoring USB plug/unplug to store private key
+\item entering password to encrypt private key 
+\end{DoxyItemize}
+
+\label{doc-constructors}
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a0377abd6329a5374d421c761f2a51e75}\index{generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classgenerate__keys__frame_1_1_generate_keys_frame_a0377abd6329a5374d421c761f2a51e75} 
+generate\+\_\+keys\+\_\+frame.\+Generate\+Keys\+Frame.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{parent}{, }\item[{}]{controller}{}\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Initializes UI layout, USB monitor, and labels. 
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent frame. \\
+\hline
+{\em controller} & The main controller to access app dimensions and state transitions. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_a82cbd608bc35fce810de6802dc0229c6}\index{generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}!gen\_thread@{gen\_thread}}
+\index{gen\_thread@{gen\_thread}!generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}}
+\doxysubsubsection{\texorpdfstring{gen\_thread()}{gen\_thread()}}
+{\footnotesize\ttfamily \label{classgenerate__keys__frame_1_1_generate_keys_frame_a82cbd608bc35fce810de6802dc0229c6} 
+generate\+\_\+keys\+\_\+frame.\+Generate\+Keys\+Frame.\+gen\+\_\+thread (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{pwd}{}\end{DoxyParamCaption})}
+
+
+
+Worker thread that generates RSA key pair using {\ttfamily \doxylink{_key_generation_app_2utils_8py_a7dd57cea0c8769441e59fb6fb6d31837}{utils.\+generate\+\_\+key\+\_\+pair}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pwd} & The password used to encrypt the private key. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgenerate__keys__frame_1_1_generate_keys_frame_afb1f227bb67edcc3481cfedd2d8dd396}\index{generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}!update\_ui@{update\_ui}}
+\index{update\_ui@{update\_ui}!generate\_keys\_frame.GenerateKeysFrame@{generate\_keys\_frame.GenerateKeysFrame}}
+\doxysubsubsection{\texorpdfstring{update\_ui()}{update\_ui()}}
+{\footnotesize\ttfamily \label{classgenerate__keys__frame_1_1_generate_keys_frame_afb1f227bb67edcc3481cfedd2d8dd396} 
+generate\+\_\+keys\+\_\+frame.\+Generate\+Keys\+Frame.\+update\+\_\+ui (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{usb\+\_\+found}{}\end{DoxyParamCaption})}
+
+
+
+Callback for USB monitor to update interface based on drive availability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em usb\+\_\+found} & Boolean flag whether USB is connected. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Key\+Generation\+App/\+UI/\mbox{\hyperlink{generate__keys__frame_8py}{generate\+\_\+keys\+\_\+frame.\+py}}\end{DoxyCompactItemize}

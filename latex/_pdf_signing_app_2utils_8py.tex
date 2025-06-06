@@ -1,0 +1,86 @@
+\doxysection{Pdf\+Signing\+App/utils.py File Reference}
+\hypertarget{_pdf_signing_app_2utils_8py}{}\label{_pdf_signing_app_2utils_8py}\index{PdfSigningApp/utils.py@{PdfSigningApp/utils.py}}
+
+
+Contains cryptographic utility functions for PDF hashing, key generation, and digital signatures.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_pdf_signing_app_2utils_8py_a84713ddc8b84695c6751634446915a19}{utils.\+create\+\_\+pdf\+\_\+hash}} (pdf\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Creates a SHA-\/256 hash of the given PDF file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_pdf_signing_app_2utils_8py_aad8180a924aacc561d3f12e7ccf9b4b0}{utils.\+generate\+\_\+key\+\_\+pair}} (dir\+\_\+path, pwd)
+\begin{DoxyCompactList}\small\item\em Generates a 4096-\/bit RSA key pair and saves it to the specified directory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_pdf_signing_app_2utils_8py_a7ee12c96876461d6b26eabd6d366a062}{utils.\+sign\+\_\+hash\+\_\+with\+\_\+pkey}} (pkey\+\_\+path, file\+\_\+hash, pwd)
+\begin{DoxyCompactList}\small\item\em Signs a hash using a private RSA key loaded from a PEM file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains cryptographic utility functions for PDF hashing, key generation, and digital signatures. 
+
+This module provides support for creating SHA-\/256 hashes of PDF files, generating RSA key pairs, and signing hashes with private keys. 
+
+\label{doc-func-members}
+\Hypertarget{_pdf_signing_app_2utils_8py_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_pdf_signing_app_2utils_8py_a84713ddc8b84695c6751634446915a19}\index{utils.py@{utils.py}!create\_pdf\_hash@{create\_pdf\_hash}}
+\index{create\_pdf\_hash@{create\_pdf\_hash}!utils.py@{utils.py}}
+\doxysubsubsection{\texorpdfstring{create\_pdf\_hash()}{create\_pdf\_hash()}}
+{\footnotesize\ttfamily \label{_pdf_signing_app_2utils_8py_a84713ddc8b84695c6751634446915a19} 
+utils.\+create\+\_\+pdf\+\_\+hash (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Creates a SHA-\/256 hash of the given PDF file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Path to the input PDF file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SHA-\/256 hash object of the file content.
+\end{DoxyReturn}
+\begin{DoxyVerb}Create SHA-256 hash of a PDF file.\end{DoxyVerb}
+ \Hypertarget{_pdf_signing_app_2utils_8py_aad8180a924aacc561d3f12e7ccf9b4b0}\index{utils.py@{utils.py}!generate\_key\_pair@{generate\_key\_pair}}
+\index{generate\_key\_pair@{generate\_key\_pair}!utils.py@{utils.py}}
+\doxysubsubsection{\texorpdfstring{generate\_key\_pair()}{generate\_key\_pair()}}
+{\footnotesize\ttfamily \label{_pdf_signing_app_2utils_8py_aad8180a924aacc561d3f12e7ccf9b4b0} 
+utils.\+generate\+\_\+key\+\_\+pair (\begin{DoxyParamCaption}\item[{}]{dir\+\_\+path}{, }\item[{}]{pwd}{}\end{DoxyParamCaption})}
+
+
+
+Generates a 4096-\/bit RSA key pair and saves it to the specified directory. 
+
+The private key is encrypted using AES-\/256 with the provided password.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+\_\+path} & Directory path where the keys should be saved. \\
+\hline
+{\em pwd} & Password used to encrypt the private key. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_pdf_signing_app_2utils_8py_a7ee12c96876461d6b26eabd6d366a062}\index{utils.py@{utils.py}!sign\_hash\_with\_pkey@{sign\_hash\_with\_pkey}}
+\index{sign\_hash\_with\_pkey@{sign\_hash\_with\_pkey}!utils.py@{utils.py}}
+\doxysubsubsection{\texorpdfstring{sign\_hash\_with\_pkey()}{sign\_hash\_with\_pkey()}}
+{\footnotesize\ttfamily \label{_pdf_signing_app_2utils_8py_a7ee12c96876461d6b26eabd6d366a062} 
+utils.\+sign\+\_\+hash\+\_\+with\+\_\+pkey (\begin{DoxyParamCaption}\item[{}]{pkey\+\_\+path}{, }\item[{}]{file\+\_\+hash}{, }\item[{}]{pwd}{}\end{DoxyParamCaption})}
+
+
+
+Signs a hash using a private RSA key loaded from a PEM file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pkey\+\_\+path} & Path to the PEM-\/formatted private key file. \\
+\hline
+{\em file\+\_\+hash} & Hash object to be signed (e.\+g., SHA-\/256 hash). \\
+\hline
+{\em pwd} & Password to decrypt the private key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Hexadecimal string of the generated signature. 
+\end{DoxyReturn}

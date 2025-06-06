@@ -1,0 +1,211 @@
+\doxysection{sign\+\_\+frame.\+Sign\+Frame Class Reference}
+\hypertarget{classsign__frame_1_1_sign_frame}{}\label{classsign__frame_1_1_sign_frame}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+
+
+Frame to handle PDF signing functionality.  
+
+
+Inheritance diagram for sign\+\_\+frame.\+Sign\+Frame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsign__frame_1_1_sign_frame}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_ad0f7b51e5be28742fb268d23828fea0f}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, parent, controller)
+\begin{DoxyCompactList}\small\item\em Initializes the signing frame UI and USB monitoring. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a24ec6b507eef75b4d104f397e6b87701}{choose\+\_\+pdf}} (self)
+\begin{DoxyCompactList}\small\item\em Opens file dialog for user to select a PDF file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a0b59b28cd6baeadd69b41a9f52d8f5aa}{sign\+\_\+btn}} (self)
+\begin{DoxyCompactList}\small\item\em Handles Sign button click\+: \end{DoxyCompactList}\item 
+\Hypertarget{classsign__frame_1_1_sign_frame_aa968c36caa8a939ce1ebef3234a24f90}\label{classsign__frame_1_1_sign_frame_aa968c36caa8a939ce1ebef3234a24f90} 
+{\bfseries view\+\_\+with\+\_\+private\+\_\+key} (self)
+\begin{DoxyCompactList}\small\item\em Updates UI to indicate private key found on USB drive. \end{DoxyCompactList}\item 
+\Hypertarget{classsign__frame_1_1_sign_frame_a6e0c8a3b7d328097ebc35bfdd8713d60}\label{classsign__frame_1_1_sign_frame_a6e0c8a3b7d328097ebc35bfdd8713d60} 
+{\bfseries view\+\_\+without\+\_\+private\+\_\+key} (self)
+\begin{DoxyCompactList}\small\item\em Updates UI to indicate no private key found and disables buttons. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a4df20ded539a9422cf6e1453573ebd4f}{update\+\_\+ui}} (self, key\+\_\+found)
+\begin{DoxyCompactList}\small\item\em Callback for \doxylink{classusb__monitor_1_1_u_s_b_monitor}{USBMonitor} to update UI when key presence changes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a927d65d662fc26766716e2b2145f75f8}{info}}
+\item 
+\Hypertarget{classsign__frame_1_1_sign_frame_af88708de22537a1b080795aaa5b7eac1}\label{classsign__frame_1_1_sign_frame_af88708de22537a1b080795aaa5b7eac1} 
+{\bfseries file\+\_\+frame} = ctk.\+CTk\+Frame(self, fg\+\_\+color="{}transparent"{})
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_ac746583816b47412e1da6c65688396b5}{selected\+\_\+file\+\_\+label}}
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_ab3e08d4e46d52b6785f6d1bc591c29dc}{select\+\_\+file\+\_\+button}}
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a3d099fc63b3e0660c874a4091b4b2f92}{sign\+\_\+button}}
+\item 
+\mbox{\hyperlink{classsign__frame_1_1_sign_frame_a5def6b63f9bf77c0e06ea4ca0e266f1a}{empty}}
+\item 
+\Hypertarget{classsign__frame_1_1_sign_frame_a59f3dcfe2deb87f44134cef75003d51c}\label{classsign__frame_1_1_sign_frame_a59f3dcfe2deb87f44134cef75003d51c} 
+{\bfseries usb\+\_\+monitor} = \mbox{\hyperlink{classusb__monitor_1_1_u_s_b_monitor}{USBMonitor}}(self.\+update\+\_\+ui)
+\item 
+\Hypertarget{classsign__frame_1_1_sign_frame_a844b7da71ef65189080a13a444d07b78}\label{classsign__frame_1_1_sign_frame_a844b7da71ef65189080a13a444d07b78} 
+{\bfseries pdf\+\_\+to\+\_\+sign} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Frame to handle PDF signing functionality. 
+
+Allows user to select PDF, detects private key on USB drives, requests password, signs the PDF, and shows relevant UI updates. 
+
+\label{doc-constructors}
+\Hypertarget{classsign__frame_1_1_sign_frame_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classsign__frame_1_1_sign_frame_ad0f7b51e5be28742fb268d23828fea0f}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_ad0f7b51e5be28742fb268d23828fea0f} 
+sign\+\_\+frame.\+Sign\+Frame.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{parent}{, }\item[{}]{controller}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the signing frame UI and USB monitoring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent widget. \\
+\hline
+{\em controller} & Controller providing window dimensions and frame switching. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classsign__frame_1_1_sign_frame_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classsign__frame_1_1_sign_frame_a24ec6b507eef75b4d104f397e6b87701}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!choose\_pdf@{choose\_pdf}}
+\index{choose\_pdf@{choose\_pdf}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{choose\_pdf()}{choose\_pdf()}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a24ec6b507eef75b4d104f397e6b87701} 
+sign\+\_\+frame.\+Sign\+Frame.\+choose\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Opens file dialog for user to select a PDF file. 
+
+Updates label with selected file name. \Hypertarget{classsign__frame_1_1_sign_frame_a0b59b28cd6baeadd69b41a9f52d8f5aa}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!sign\_btn@{sign\_btn}}
+\index{sign\_btn@{sign\_btn}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{sign\_btn()}{sign\_btn()}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a0b59b28cd6baeadd69b41a9f52d8f5aa} 
+sign\+\_\+frame.\+Sign\+Frame.\+sign\+\_\+btn (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Handles Sign button click\+: 
+
+
+\begin{DoxyItemize}
+\item disables buttons
+\item prompts for private key password
+\item calls sign\+\_\+pdf function
+\item shows success or error message
+\item re-\/enables buttons 
+\end{DoxyItemize}\Hypertarget{classsign__frame_1_1_sign_frame_a4df20ded539a9422cf6e1453573ebd4f}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!update\_ui@{update\_ui}}
+\index{update\_ui@{update\_ui}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{update\_ui()}{update\_ui()}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a4df20ded539a9422cf6e1453573ebd4f} 
+sign\+\_\+frame.\+Sign\+Frame.\+update\+\_\+ui (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{key\+\_\+found}{}\end{DoxyParamCaption})}
+
+
+
+Callback for \doxylink{classusb__monitor_1_1_u_s_b_monitor}{USBMonitor} to update UI when key presence changes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+\_\+found} & True if private key detected on USB, False otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{classsign__frame_1_1_sign_frame_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classsign__frame_1_1_sign_frame_a5def6b63f9bf77c0e06ea4ca0e266f1a}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!empty@{empty}}
+\index{empty@{empty}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{empty}{empty}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a5def6b63f9bf77c0e06ea4ca0e266f1a} 
+sign\+\_\+frame.\+Sign\+Frame.\+empty}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self,\ text=\textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 7),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=controller.get\_width(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+\Hypertarget{classsign__frame_1_1_sign_frame_a927d65d662fc26766716e2b2145f75f8}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!info@{info}}
+\index{info@{info}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a927d65d662fc26766716e2b2145f75f8} 
+sign\+\_\+frame.\+Sign\+Frame.\+info}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self,\ text=\textcolor{stringliteral}{"{}Insert\ a\ USB\ drive\ with\ your\ private\ RSA\ key\ to\ begin"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 7),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=controller.get\_width(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+\Hypertarget{classsign__frame_1_1_sign_frame_ab3e08d4e46d52b6785f6d1bc591c29dc}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!select\_file\_button@{select\_file\_button}}
+\index{select\_file\_button@{select\_file\_button}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{select\_file\_button}{select\_file\_button}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_ab3e08d4e46d52b6785f6d1bc591c29dc} 
+sign\+\_\+frame.\+Sign\+Frame.\+select\+\_\+file\+\_\+button}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkButton(self.file\_frame,\ text=\textcolor{stringliteral}{"{}Select\ file"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command=self.choose\_pdf)}
+
+\end{DoxyCode}
+\Hypertarget{classsign__frame_1_1_sign_frame_ac746583816b47412e1da6c65688396b5}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!selected\_file\_label@{selected\_file\_label}}
+\index{selected\_file\_label@{selected\_file\_label}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{selected\_file\_label}{selected\_file\_label}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_ac746583816b47412e1da6c65688396b5} 
+sign\+\_\+frame.\+Sign\+Frame.\+selected\+\_\+file\+\_\+label}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self.file\_frame,\ text=\textcolor{stringliteral}{"{}No\ file\ selected"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+\Hypertarget{classsign__frame_1_1_sign_frame_a3d099fc63b3e0660c874a4091b4b2f92}\index{sign\_frame.SignFrame@{sign\_frame.SignFrame}!sign\_button@{sign\_button}}
+\index{sign\_button@{sign\_button}!sign\_frame.SignFrame@{sign\_frame.SignFrame}}
+\doxysubsubsection{\texorpdfstring{sign\_button}{sign\_button}}
+{\footnotesize\ttfamily \label{classsign__frame_1_1_sign_frame_a3d099fc63b3e0660c874a4091b4b2f92} 
+sign\+\_\+frame.\+Sign\+Frame.\+sign\+\_\+button}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkButton(self,\ text=\textcolor{stringliteral}{"{}Sign"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command=self.sign\_btn)}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pdf\+Signing\+App/\+UI/\mbox{\hyperlink{sign__frame_8py}{sign\+\_\+frame.\+py}}\end{DoxyCompactItemize}

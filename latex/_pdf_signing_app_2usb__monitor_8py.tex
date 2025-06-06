@@ -1,0 +1,67 @@
+\doxysection{Pdf\+Signing\+App/usb\+\_\+monitor.py File Reference}
+\hypertarget{_pdf_signing_app_2usb__monitor_8py}{}\label{_pdf_signing_app_2usb__monitor_8py}\index{PdfSigningApp/usb\_monitor.py@{PdfSigningApp/usb\_monitor.py}}
+
+
+Module responsible for monitoring USB drive plug/unplug events on Windows.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classusb__monitor_1_1_u_s_b_monitor}{usb\+\_\+monitor.\+USBMonitor}}
+\begin{DoxyCompactList}\small\item\em Class to monitor USB plug/unplug events and detect private key presence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_key_generation_app_2usb__monitor_8py_ae0cc70c440a27968b64a68e3d45dc756}{usb\+\_\+monitor.\+get\+\_\+removable\+\_\+drives}} ()
+\begin{DoxyCompactList}\small\item\em Returns list of currently connected removable (USB) drives. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_pdf_signing_app_2usb__monitor_8py_a528125a97f2282a173dc2c12197f42d6}{usb\+\_\+monitor.\+find\+\_\+key\+\_\+file}} (drive)
+\begin{DoxyCompactList}\small\item\em Searches for a private key file on the given drive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module responsible for monitoring USB drive plug/unplug events on Windows. 
+
+Detects private key files on USB drives and updates the application interface accordingly. 
+
+\label{doc-func-members}
+\Hypertarget{_pdf_signing_app_2usb__monitor_8py_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_pdf_signing_app_2usb__monitor_8py_a528125a97f2282a173dc2c12197f42d6}\index{usb\_monitor.py@{usb\_monitor.py}!find\_key\_file@{find\_key\_file}}
+\index{find\_key\_file@{find\_key\_file}!usb\_monitor.py@{usb\_monitor.py}}
+\doxysubsubsection{\texorpdfstring{find\_key\_file()}{find\_key\_file()}}
+{\footnotesize\ttfamily \label{_pdf_signing_app_2usb__monitor_8py_a528125a97f2282a173dc2c12197f42d6} 
+usb\+\_\+monitor.\+find\+\_\+key\+\_\+file (\begin{DoxyParamCaption}\item[{}]{drive}{}\end{DoxyParamCaption})}
+
+
+
+Searches for a private key file on the given drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drive} & The root path of the USB drive to search. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Full path to the found key file or None if not found.
+\end{DoxyReturn}
+\begin{DoxyVerb}Searches for path to the private key on a drive.\end{DoxyVerb}
+ \Hypertarget{_key_generation_app_2usb__monitor_8py_ae0cc70c440a27968b64a68e3d45dc756}\index{usb\_monitor.py@{usb\_monitor.py}!get\_removable\_drives@{get\_removable\_drives}}
+\index{get\_removable\_drives@{get\_removable\_drives}!usb\_monitor.py@{usb\_monitor.py}}
+\doxysubsubsection{\texorpdfstring{get\_removable\_drives()}{get\_removable\_drives()}}
+{\footnotesize\ttfamily \label{_key_generation_app_2usb__monitor_8py_ae0cc70c440a27968b64a68e3d45dc756} 
+usb\+\_\+monitor.\+get\+\_\+removable\+\_\+drives (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns list of currently connected removable (USB) drives. 
+
+Returns a list of currently connected removable USB drives.
+
+\begin{DoxyReturn}{Returns}
+List of drive letters representing USB drives.
+
+List of removable drive letters (e.\+g., \mbox{[}\textquotesingle{}E\+:\textbackslash{}\textquotesingle{}, \textquotesingle{}F\+:\textbackslash{}\textquotesingle{}\mbox{]}).
+\end{DoxyReturn}
+\begin{DoxyVerb}Returns list of currently attached USB drives.\end{DoxyVerb}
+ 

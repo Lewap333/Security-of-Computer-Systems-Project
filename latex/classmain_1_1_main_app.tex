@@ -1,0 +1,175 @@
+\doxysection{main.\+Main\+App Class Reference}
+\hypertarget{classmain_1_1_main_app}{}\label{classmain_1_1_main_app}\index{main.MainApp@{main.MainApp}}
+
+
+Main application class for the GUI.  
+
+
+Inheritance diagram for main.\+Main\+App\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classmain_1_1_main_app}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Initializes the main application window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f}{show\+\_\+frame}} (self, page\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Displays a specific frame by name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28}{get\+\_\+width}} (self)
+\begin{DoxyCompactList}\small\item\em Returns the width of the application window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196}{get\+\_\+height}} (self)
+\begin{DoxyCompactList}\small\item\em Returns the height of the application window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classmain_1_1_main_app}{Main\+App}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f}{show\+\_\+frame}} (self, page\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Switches view to a specified frame. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28}{get\+\_\+width}} (self)
+\begin{DoxyCompactList}\small\item\em Returns window width. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196}{get\+\_\+height}} (self)
+\begin{DoxyCompactList}\small\item\em Returns window height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classmain_1_1_main_app_afefe4ee50d37aa9cf9cce59465ee52cd}\label{classmain_1_1_main_app_afefe4ee50d37aa9cf9cce59465ee52cd} 
+int {\bfseries window\+\_\+width} = 800
+\item 
+\Hypertarget{classmain_1_1_main_app_a7e9f3089de76ac7189890c7c02977e5f}\label{classmain_1_1_main_app_a7e9f3089de76ac7189890c7c02977e5f} 
+int {\bfseries window\+\_\+height} = 550
+\item 
+\Hypertarget{classmain_1_1_main_app_ade382537fcfa322d982c23fca2d2f541}\label{classmain_1_1_main_app_ade382537fcfa322d982c23fca2d2f541} 
+{\bfseries container} = ctk.\+CTk\+Frame(self)
+\item 
+\Hypertarget{classmain_1_1_main_app_a916a03370f0e67b927ba606ae919f2f6}\label{classmain_1_1_main_app_a916a03370f0e67b927ba606ae919f2f6} 
+dict {\bfseries frames} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main application class for the GUI. 
+
+Main GUI application class inheriting from CTk.
+
+Handles frame management and sets up the main window\textquotesingle{}s layout.
+
+Initializes and manages all application frames (menu, signing, verification). 
+
+\label{doc-constructors}
+\Hypertarget{classmain_1_1_main_app_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2}\index{main.MainApp@{main.MainApp}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2} 
+main.\+Main\+App.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the main application window. 
+
+Sets the window size, centers it, and initializes the first frame. \Hypertarget{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2}\index{main.MainApp@{main.MainApp}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a8412ea1112281acb0b7e23fdf56b10f2} 
+main.\+Main\+App.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{classmain_1_1_main_app}{Main\+App}. 
+
+Sets appearance, window size, and initializes all frames. 
+
+\label{doc-func-members}
+\Hypertarget{classmain_1_1_main_app_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196}\index{main.MainApp@{main.MainApp}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196} 
+main.\+Main\+App.\+get\+\_\+height (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Returns the height of the application window. 
+
+\begin{DoxyReturn}{Returns}
+Window height in pixels. 
+\end{DoxyReturn}
+\Hypertarget{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196}\index{main.MainApp@{main.MainApp}!get\_height@{get\_height}}
+\index{get\_height@{get\_height}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{get\_height()}{get\_height()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a52f2f32993654cad7a037471b3dcb196} 
+main.\+Main\+App.\+get\+\_\+height (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Returns window height. 
+
+\begin{DoxyReturn}{Returns}
+Window height as integer. 
+\end{DoxyReturn}
+\Hypertarget{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28}\index{main.MainApp@{main.MainApp}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28} 
+main.\+Main\+App.\+get\+\_\+width (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Returns the width of the application window. 
+
+\begin{DoxyReturn}{Returns}
+Window width in pixels. 
+\end{DoxyReturn}
+\Hypertarget{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28}\index{main.MainApp@{main.MainApp}!get\_width@{get\_width}}
+\index{get\_width@{get\_width}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_acbfda1aa4ed2d487ca707c464ec7df28} 
+main.\+Main\+App.\+get\+\_\+width (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Returns window width. 
+
+\begin{DoxyReturn}{Returns}
+Window width as integer. 
+\end{DoxyReturn}
+\Hypertarget{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f}\index{main.MainApp@{main.MainApp}!show\_frame@{show\_frame}}
+\index{show\_frame@{show\_frame}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{show\_frame()}{show\_frame()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f} 
+main.\+Main\+App.\+show\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{page\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Displays a specific frame by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+\_\+name} & The name of the frame to display. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f}\index{main.MainApp@{main.MainApp}!show\_frame@{show\_frame}}
+\index{show\_frame@{show\_frame}!main.MainApp@{main.MainApp}}
+\doxysubsubsection{\texorpdfstring{show\_frame()}{show\_frame()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classmain_1_1_main_app_a7ced46efda65b1dd8e5bbe77657ef46f} 
+main.\+Main\+App.\+show\+\_\+frame (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{page\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Switches view to a specified frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page\+\_\+name} & Name of the frame class to display.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}Shows a frame for the given page name\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Key\+Generation\+App/\mbox{\hyperlink{_key_generation_app_2main_8py}{main.\+py}}\item 
+Pdf\+Signing\+App/\mbox{\hyperlink{_pdf_signing_app_2main_8py}{main.\+py}}\end{DoxyCompactItemize}

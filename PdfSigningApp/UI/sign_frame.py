@@ -1,3 +1,11 @@
+##
+# @file sign_frame.py
+# @brief GUI frame to select a PDF file and sign it using a private RSA key on USB.
+#
+# The frame provides UI elements to pick a PDF file, display status,
+# monitor USB insertion/removal for private key presence,
+# and sign the PDF after password input.
+
 import os
 import customtkinter as ctk
 from tkinter import filedialog as fd
@@ -6,8 +14,17 @@ from UI.password_dialog import PasswordDialog
 from usb_monitor import USBMonitor
 from tkinter import messagebox
 
-
+##
+# @brief Frame to handle PDF signing functionality.
+#
+# Allows user to select PDF, detects private key on USB drives,
+# requests password, signs the PDF, and shows relevant UI updates.
 class SignFrame(ctk.CTkFrame):
+    ##
+    # @brief Initializes the signing frame UI and USB monitoring.
+    #
+    # @param parent Parent widget.
+    # @param controller Controller providing window dimensions and frame switching.
     def __init__(self, parent, controller):
         super().__init__(parent)
 
@@ -40,7 +57,6 @@ class SignFrame(ctk.CTkFrame):
                                                 height=(controller.get_height() / 8),
                                                 width=(controller.get_width() / 4),
                                                 command=self.choose_pdf)
-
         self.select_file_button.pack(padx=10, pady=5, side="left")
 
         self.sign_button = ctk.CTkButton(self, text="Sign",
@@ -70,8 +86,10 @@ class SignFrame(ctk.CTkFrame):
 
         self.pdf_to_sign = None
 
+    ##
+    # @brief Opens file dialog for user to select a PDF file.
+    # Updates label with selected file name.
     def choose_pdf(self):
-        # Choose .pdf file
         self.pdf_to_sign = fd.askopenfilename(title="Choose PDF file", filetypes=[("PDF files", "*.pdf")])
 
         label_text = self.pdf_to_sign
@@ -79,13 +97,13 @@ class SignFrame(ctk.CTkFrame):
             label_text = '...%s' % label_text[-33:]
         self.selected_file_label.configure(text=os.path.basename(label_text))
 
-        # self.pdf_icon = Image.open("pdf_icon.png")
-        # self.pdf_icon = self.pdf_icon.resize((100, 100))
-        # self.pdf_icon_tk = ImageTk.PhotoImage(self.pdf_icon)
-        #
-        # self.label_icon = tk.Label(self, image=self.pdf_icon_tk, bg="white")
-        # self.label_icon.place(relx=0.8, rely=0.45, anchor=tk.CENTER)
-
+    ##
+    # @brief Handles Sign button click:
+    # - disables buttons
+    # - prompts for private key password
+    # - calls sign_pdf function
+    # - shows success or error message
+    # - re-enables buttons
     def sign_btn(self):
         self.select_file_button.configure(state="disabled")
         self.sign_button.configure(state="disabled")
@@ -101,6 +119,8 @@ class SignFrame(ctk.CTkFrame):
         self.select_file_button.configure(state="normal")
         self.sign_button.configure(state="normal")
 
+    ##
+    # @brief Updates UI to indicate private key found on USB drive.
     def view_with_private_key(self):
         key = self.usb_monitor.get_key_file_path()
 
@@ -112,11 +132,16 @@ class SignFrame(ctk.CTkFrame):
         self.select_file_button.configure(state="normal")
         self.sign_button.configure(state="normal")
 
+    ##
+    # @brief Updates UI to indicate no private key found and disables buttons.
     def view_without_private_key(self):
         self.info.configure(text="Insert a USB drive with your private RSA key")
         self.select_file_button.configure(state="disabled")
         self.sign_button.configure(state="disabled")
 
+    ##
+    # @brief Callback for USBMonitor to update UI when key presence changes.
+    # @param key_found True if private key detected on USB, False otherwise.
     def update_ui(self, key_found):
         if key_found:
             self.view_with_private_key()

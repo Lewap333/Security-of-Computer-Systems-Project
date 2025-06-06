@@ -1,0 +1,44 @@
+\doxysection{Pdf\+Signing\+App/verify.py File Reference}
+\hypertarget{verify_8py}{}\label{verify_8py}\index{PdfSigningApp/verify.py@{PdfSigningApp/verify.py}}
+
+
+Provides functionality to verify a digitally signed PDF using RSA and SHA-\/256.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{verify_8py_a3917f1486f3ad172d463650a159e19fd}{verify.\+verify\+\_\+pdf}} (pdf\+\_\+path, public\+\_\+key\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Verifies the digital signature of a PDF file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functionality to verify a digitally signed PDF using RSA and SHA-\/256. 
+
+This module extracts the digital signature from a PDF\textquotesingle{}s metadata, reconstructs a clean copy without the signature, generates its hash, and validates the signature using a provided RSA public key. 
+
+\label{doc-func-members}
+\Hypertarget{verify_8py_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{verify_8py_a3917f1486f3ad172d463650a159e19fd}\index{verify.py@{verify.py}!verify\_pdf@{verify\_pdf}}
+\index{verify\_pdf@{verify\_pdf}!verify.py@{verify.py}}
+\doxysubsubsection{\texorpdfstring{verify\_pdf()}{verify\_pdf()}}
+{\footnotesize\ttfamily \label{verify_8py_a3917f1486f3ad172d463650a159e19fd} 
+verify.\+verify\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{, }\item[{}]{public\+\_\+key\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Verifies the digital signature of a PDF file. 
+
+This function reads the embedded signature from the metadata (under {\ttfamily /\+Signature} key), removes the signature from the metadata to obtain a clean version of the PDF, creates a SHA-\/256 hash of this clean copy, and then verifies the hash against the stored signature using the provided RSA public key.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Path to the signed PDF file. \\
+\hline
+{\em public\+\_\+key\+\_\+path} & Path to the public key file (PEM format). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the signature is valid and the PDF was not modified; False otherwise. 
+\end{DoxyReturn}
