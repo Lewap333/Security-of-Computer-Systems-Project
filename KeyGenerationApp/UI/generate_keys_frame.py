@@ -29,7 +29,61 @@ class GenerateKeysFrame(ctk.CTkFrame):
     def __init__(self, parent, controller):
         super().__init__(parent)
         self.dir_path = None
-        # [UI layout and setup skipped for brevity]
+        title = ctk.CTkLabel(self, text="RSA Key Generation",
+                             fg_color="transparent",
+                             height=(controller.get_height() / 5),
+                             width=controller.get_width(),
+                             font=("Arial", 30, "bold"))
+        title.pack(pady=5)
+
+        self.private_key_label = ctk.CTkLabel(self, text="Insert USB drive for your private key",
+                                              fg_color="transparent",
+                                              height=(controller.get_height() / 7),
+                                              width=controller.get_width(),
+                                              font=("Arial", 25))
+
+        self.private_key_label.pack(pady=5)
+
+        self.pub_label = ctk.CTkLabel(self, text="Select folder for public key",
+                                      fg_color="transparent",
+                                      height=(controller.get_height() / 7),
+                                      width=controller.get_width(),
+                                      font=("Arial", 25))
+
+        self.pub_label.pack(pady=5)
+
+        self.file_frame = ctk.CTkFrame(self, fg_color="transparent")
+        self.file_frame.pack()
+
+        self.selected_dir_label = ctk.CTkLabel(self.file_frame, text="Folder not selected",
+                                               fg_color="transparent",
+                                               height=(controller.get_height() / 8),
+                                               width=(controller.get_width() / 4),
+                                               font=("Arial", 25))
+        self.selected_dir_label.pack(padx=10, pady=5, side="right")
+
+        self.select_dir_button = ctk.CTkButton(self.file_frame, text="Select folder",
+                                               font=("Arial", 25),
+                                               height=(controller.get_height() / 8),
+                                               width=(controller.get_width() / 4),
+                                               command=self.select_dir_btn)
+        self.select_dir_button.pack(padx=10, pady=5, side="left")
+
+        self.generate_button = ctk.CTkButton(self, text="Generate Keys",
+                                             font=("Arial", 25),
+                                             height=(controller.get_height() / 8),
+                                             width=(controller.get_width() / 4),
+                                             command=self.gen_keys_btn)
+        self.generate_button.pack(pady=5)
+
+        self.empty = ctk.CTkLabel(self, text="",
+                                  fg_color="transparent",
+                                  height=(controller.get_height() / 7),
+                                  width=controller.get_width(),
+                                  font=("Arial", 25))
+        self.empty.pack(pady=5)
+
+        self.running_animation = False
         self.usb_monitor = USBMonitor(self.update_ui)
         self.usb_monitor.start_monitoring()
         self.usb_monitor.initial_drive_check()

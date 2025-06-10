@@ -64,7 +64,7 @@ class USBMonitor:
         class_atom = win32gui.RegisterClass(wc)
 
         self.hwnd = win32gui.CreateWindow(class_atom, "USB Monitor", 0, 0, 0, 0, 0,
-                                          0, 0, 0, wc.hInstance, None)
+                                          0, 0, wc.hInstance, None)
         win32gui.PumpMessages()
 
     ##
