@@ -1,0 +1,178 @@
+\doxysection{verify\+\_\+frame.\+Verify\+Frame Class Reference}
+\hypertarget{classverify__frame_1_1_verify_frame}{}\label{classverify__frame_1_1_verify_frame}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+
+
+Frame to handle PDF signature verification functionality.  
+
+
+Inheritance diagram for verify\+\_\+frame.\+Verify\+Frame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classverify__frame_1_1_verify_frame}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_a094958681c466352c59ce1e4194fdc02}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, parent, controller)
+\begin{DoxyCompactList}\small\item\em Initializes the verify frame UI. \end{DoxyCompactList}\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_ae3afc5fb1ff3f8455b58021a1a8063d4}\label{classverify__frame_1_1_verify_frame_ae3afc5fb1ff3f8455b58021a1a8063d4} 
+{\bfseries choose\+\_\+pdf} (self)
+\begin{DoxyCompactList}\small\item\em Opens file dialog for user to select a PDF file to verify. \end{DoxyCompactList}\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_ac68880f1ac268f3215f7580a601e1422}\label{classverify__frame_1_1_verify_frame_ac68880f1ac268f3215f7580a601e1422} 
+{\bfseries choose\+\_\+pem} (self)
+\begin{DoxyCompactList}\small\item\em Opens file dialog for user to select a PEM public key file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_a9ec2d5eb7df70898bb1727a52eede02b}{verify\+\_\+btn}} (self)
+\begin{DoxyCompactList}\small\item\em Called when Verify button clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_a140e61fedbef475555a8818c6ad9d235}{info}}
+\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_a636548f2274c2cef4b1951a8f4d98f91}\label{classverify__frame_1_1_verify_frame_a636548f2274c2cef4b1951a8f4d98f91} 
+{\bfseries file\+\_\+frame} = ctk.\+CTk\+Frame(self, fg\+\_\+color="{}transparent"{})
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_a410b0412da3b1730632ad624054fa06b}{selected\+\_\+file\+\_\+label}}
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_a4ff5ca9c8bcbdb346433f46fde10cd33}{select\+\_\+file\+\_\+button}}
+\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_a9a2e904008f6bce2b6e84b7e75f8685a}\label{classverify__frame_1_1_verify_frame_a9a2e904008f6bce2b6e84b7e75f8685a} 
+{\bfseries key\+\_\+frame} = ctk.\+CTk\+Frame(self, fg\+\_\+color="{}transparent"{})
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_aaa3d696bd74578f80db1107ca45f751e}{selected\+\_\+key\+\_\+label}}
+\item 
+\mbox{\hyperlink{classverify__frame_1_1_verify_frame_aacb0d0091676751d14957a3ed100ce39}{select\+\_\+key\+\_\+button}}
+\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_a05b68eb7357dd0979522ab48aa30546c}\label{classverify__frame_1_1_verify_frame_a05b68eb7357dd0979522ab48aa30546c} 
+{\bfseries pdf\+\_\+to\+\_\+verify} = None
+\item 
+\Hypertarget{classverify__frame_1_1_verify_frame_a98bc5ad037f77fae01c67e231ffb0854}\label{classverify__frame_1_1_verify_frame_a98bc5ad037f77fae01c67e231ffb0854} 
+{\bfseries public\+\_\+key\+\_\+path} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Frame to handle PDF signature verification functionality. 
+
+Allows user to select PDF and public key files, then verify the signature. 
+
+\label{doc-constructors}
+\Hypertarget{classverify__frame_1_1_verify_frame_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classverify__frame_1_1_verify_frame_a094958681c466352c59ce1e4194fdc02}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_a094958681c466352c59ce1e4194fdc02} 
+verify\+\_\+frame.\+Verify\+Frame.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{parent}{, }\item[{}]{controller}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the verify frame UI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Parent widget. \\
+\hline
+{\em controller} & Controller with window dimensions and frame switching. \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classverify__frame_1_1_verify_frame_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classverify__frame_1_1_verify_frame_a9ec2d5eb7df70898bb1727a52eede02b}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!verify\_btn@{verify\_btn}}
+\index{verify\_btn@{verify\_btn}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{verify\_btn()}{verify\_btn()}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_a9ec2d5eb7df70898bb1727a52eede02b} 
+verify\+\_\+frame.\+Verify\+Frame.\+verify\+\_\+btn (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Called when Verify button clicked. 
+
+Checks if PDF and key are selected, calls verify\+\_\+pdf, then displays messagebox with verification result. 
+
+\label{doc-variable-members}
+\Hypertarget{classverify__frame_1_1_verify_frame_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classverify__frame_1_1_verify_frame_a140e61fedbef475555a8818c6ad9d235}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!info@{info}}
+\index{info@{info}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{info}{info}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_a140e61fedbef475555a8818c6ad9d235} 
+verify\+\_\+frame.\+Verify\+Frame.\+info}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self,\ text=\textcolor{stringliteral}{"{}Select\ a\ PDF\ file\ and\ a\ public\ key\ to\ verify\ the\ signature."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 7),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=controller.get\_width(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+\Hypertarget{classverify__frame_1_1_verify_frame_a4ff5ca9c8bcbdb346433f46fde10cd33}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!select\_file\_button@{select\_file\_button}}
+\index{select\_file\_button@{select\_file\_button}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{select\_file\_button}{select\_file\_button}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_a4ff5ca9c8bcbdb346433f46fde10cd33} 
+verify\+\_\+frame.\+Verify\+Frame.\+select\+\_\+file\+\_\+button}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkButton(self.file\_frame,\ text=\textcolor{stringliteral}{"{}Select\ file"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command=self.choose\_pdf)}
+
+\end{DoxyCode}
+\Hypertarget{classverify__frame_1_1_verify_frame_aacb0d0091676751d14957a3ed100ce39}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!select\_key\_button@{select\_key\_button}}
+\index{select\_key\_button@{select\_key\_button}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{select\_key\_button}{select\_key\_button}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_aacb0d0091676751d14957a3ed100ce39} 
+verify\+\_\+frame.\+Verify\+Frame.\+select\+\_\+key\+\_\+button}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkButton(self.key\_frame,\ text=\textcolor{stringliteral}{"{}Select\ key"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command=self.choose\_pem)}
+
+\end{DoxyCode}
+\Hypertarget{classverify__frame_1_1_verify_frame_a410b0412da3b1730632ad624054fa06b}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!selected\_file\_label@{selected\_file\_label}}
+\index{selected\_file\_label@{selected\_file\_label}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{selected\_file\_label}{selected\_file\_label}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_a410b0412da3b1730632ad624054fa06b} 
+verify\+\_\+frame.\+Verify\+Frame.\+selected\+\_\+file\+\_\+label}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self.file\_frame,\ text=\textcolor{stringliteral}{"{}No\ file\ selected"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+\Hypertarget{classverify__frame_1_1_verify_frame_aaa3d696bd74578f80db1107ca45f751e}\index{verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}!selected\_key\_label@{selected\_key\_label}}
+\index{selected\_key\_label@{selected\_key\_label}!verify\_frame.VerifyFrame@{verify\_frame.VerifyFrame}}
+\doxysubsubsection{\texorpdfstring{selected\_key\_label}{selected\_key\_label}}
+{\footnotesize\ttfamily \label{classverify__frame_1_1_verify_frame_aaa3d696bd74578f80db1107ca45f751e} 
+verify\+\_\+frame.\+Verify\+Frame.\+selected\+\_\+key\+\_\+label}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ ctk.CTkLabel(self.key\_frame,\ text=\textcolor{stringliteral}{"{}No\ key\ selected"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fg\_color=\textcolor{stringliteral}{"{}transparent"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=(controller.get\_height()\ /\ 8),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ width=(controller.get\_width()\ /\ 4),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ font=(\textcolor{stringliteral}{"{}Arial"{}},\ 25))}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Pdf\+Signing\+App/\+UI/\mbox{\hyperlink{verify__frame_8py}{verify\+\_\+frame.\+py}}\end{DoxyCompactItemize}

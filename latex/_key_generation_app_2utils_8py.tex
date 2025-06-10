@@ -1,0 +1,46 @@
+\doxysection{Key\+Generation\+App/utils.py File Reference}
+\hypertarget{_key_generation_app_2utils_8py}{}\label{_key_generation_app_2utils_8py}\index{KeyGenerationApp/utils.py@{KeyGenerationApp/utils.py}}
+
+
+Module responsible for generating RSA key pairs and saving them to files.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_key_generation_app_2utils_8py_a7dd57cea0c8769441e59fb6fb6d31837}{utils.\+generate\+\_\+key\+\_\+pair}} (dir\+\_\+path, priv\+\_\+path, pwd)
+\begin{DoxyCompactList}\small\item\em Generates and saves a 4096-\/bit RSA key pair. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module responsible for generating RSA key pairs and saving them to files. 
+
+Generates a 4096-\/bit RSA key pair, encrypts the private key with a passphrase using AES-\/256, and saves both keys in PEM format to the specified directories. 
+
+\label{doc-func-members}
+\Hypertarget{_key_generation_app_2utils_8py_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_key_generation_app_2utils_8py_a7dd57cea0c8769441e59fb6fb6d31837}\index{utils.py@{utils.py}!generate\_key\_pair@{generate\_key\_pair}}
+\index{generate\_key\_pair@{generate\_key\_pair}!utils.py@{utils.py}}
+\doxysubsubsection{\texorpdfstring{generate\_key\_pair()}{generate\_key\_pair()}}
+{\footnotesize\ttfamily \label{_key_generation_app_2utils_8py_a7dd57cea0c8769441e59fb6fb6d31837} 
+utils.\+generate\+\_\+key\+\_\+pair (\begin{DoxyParamCaption}\item[{}]{dir\+\_\+path}{, }\item[{}]{priv\+\_\+path}{, }\item[{}]{pwd}{}\end{DoxyParamCaption})}
+
+
+
+Generates and saves a 4096-\/bit RSA key pair. 
+
+The private key is encrypted using AES-\/256 (via scrypt + CBC) and saved to the provided path. The public key is saved in plain text to the specified output directory.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+\_\+path} & Path to directory where the public key will be saved. \\
+\hline
+{\em priv\+\_\+path} & Path to directory where the private key will be saved. \\
+\hline
+{\em pwd} & Passphrase to encrypt the private key with AES-\/256.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}

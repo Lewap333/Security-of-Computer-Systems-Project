@@ -1,0 +1,98 @@
+\doxysection{Pdf\+Signing\+App/sign.py File Reference}
+\hypertarget{sign_8py}{}\label{sign_8py}\index{PdfSigningApp/sign.py@{PdfSigningApp/sign.py}}
+
+
+Module responsible for signing PDF files and embedding the signature in metadata.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{sign_8py_ac324f396e2ec1152a2ce7dce9f35067a}{sign.\+normalize\+\_\+pdf}} (input\+\_\+path, output\+\_\+path)
+\begin{DoxyCompactList}\small\item\em Creates a normalized copy of a PDF file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sign_8py_a814b54f2e2f5b78f22194842b6f1f623}{sign.\+add\+\_\+signature\+\_\+to\+\_\+metadata}} (pdf\+\_\+path, output\+\_\+path, signature)
+\begin{DoxyCompactList}\small\item\em Adds a cryptographic signature to PDF metadata. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{sign_8py_ac9c0e74b005f97d24867f791d331e6d9}{sign.\+sign\+\_\+pdf}} (pdf\+\_\+path, private\+\_\+key\+\_\+path, pwd)
+\begin{DoxyCompactList}\small\item\em Creates a digital signature and embeds it in the PDF. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Module responsible for signing PDF files and embedding the signature in metadata. 
+
+Uses Py\+PDF2 to manipulate PDF files and internal tools ({\ttfamily utils}) to generate a hash and sign it with a private key. 
+
+\label{doc-func-members}
+\Hypertarget{sign_8py_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{sign_8py_a814b54f2e2f5b78f22194842b6f1f623}\index{sign.py@{sign.py}!add\_signature\_to\_metadata@{add\_signature\_to\_metadata}}
+\index{add\_signature\_to\_metadata@{add\_signature\_to\_metadata}!sign.py@{sign.py}}
+\doxysubsubsection{\texorpdfstring{add\_signature\_to\_metadata()}{add\_signature\_to\_metadata()}}
+{\footnotesize\ttfamily \label{sign_8py_a814b54f2e2f5b78f22194842b6f1f623} 
+sign.\+add\+\_\+signature\+\_\+to\+\_\+metadata (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{, }\item[{}]{output\+\_\+path}{, }\item[{}]{signature}{}\end{DoxyParamCaption})}
+
+
+
+Adds a cryptographic signature to PDF metadata. 
+
+Stores the signature under the {\ttfamily /\+Signature} key in the metadata.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Path to the input PDF file. \\
+\hline
+{\em output\+\_\+path} & Path to the output PDF file with signature. \\
+\hline
+{\em signature} & Signature value (string).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}Adds created hash to metadata with key "/Signature".\end{DoxyVerb}
+ \Hypertarget{sign_8py_ac324f396e2ec1152a2ce7dce9f35067a}\index{sign.py@{sign.py}!normalize\_pdf@{normalize\_pdf}}
+\index{normalize\_pdf@{normalize\_pdf}!sign.py@{sign.py}}
+\doxysubsubsection{\texorpdfstring{normalize\_pdf()}{normalize\_pdf()}}
+{\footnotesize\ttfamily \label{sign_8py_ac324f396e2ec1152a2ce7dce9f35067a} 
+sign.\+normalize\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{input\+\_\+path}{, }\item[{}]{output\+\_\+path}{}\end{DoxyParamCaption})}
+
+
+
+Creates a normalized copy of a PDF file. 
+
+Normalization is needed because structural differences may lead to hash mismatches even if content appears the same.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+\_\+path} & Path to the original PDF file. \\
+\hline
+{\em output\+\_\+path} & Path to the normalized output file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}Creates 1:1 copy of PDF file using PyPDF2 lib.
+Without normalization first (before signing) hash differs at verification.
+\end{DoxyVerb}
+ \Hypertarget{sign_8py_ac9c0e74b005f97d24867f791d331e6d9}\index{sign.py@{sign.py}!sign\_pdf@{sign\_pdf}}
+\index{sign\_pdf@{sign\_pdf}!sign.py@{sign.py}}
+\doxysubsubsection{\texorpdfstring{sign\_pdf()}{sign\_pdf()}}
+{\footnotesize\ttfamily \label{sign_8py_ac9c0e74b005f97d24867f791d331e6d9} 
+sign.\+sign\+\_\+pdf (\begin{DoxyParamCaption}\item[{}]{pdf\+\_\+path}{, }\item[{}]{private\+\_\+key\+\_\+path}{, }\item[{}]{pwd}{}\end{DoxyParamCaption})}
+
+
+
+Creates a digital signature and embeds it in the PDF. 
+
+Normalizes the input file, generates a hash, and signs it using a private key. The result is saved as a new PDF file with a {\ttfamily \+\_\+signed} suffix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pdf\+\_\+path} & Path to the input PDF file. \\
+\hline
+{\em private\+\_\+key\+\_\+path} & Path to the encrypted private key. \\
+\hline
+{\em pwd} & Password to decrypt the private key. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if signing was successful, False on error (e.\+g. wrong password).
+\end{DoxyReturn}
+\begin{DoxyVerb}Adds signed hash of PDF file to metadata with key '/Signature'
+Signed PDF is saved at input file location with suffix '_signed'
+\end{DoxyVerb}
+ 

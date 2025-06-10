@@ -1,3 +1,9 @@
+##
+# @file usb_monitor.py
+# @brief Module responsible for monitoring USB drive plug/unplug events on Windows.
+#
+# Detects private key files on USB drives and updates the application interface accordingly.
+
 import os
 import win32api
 import win32file
@@ -14,13 +20,18 @@ WM_DEVICECHANGE = 0x0219
 DBT_DEVICEARRIVAL = 0x8000
 DBT_DEVICEREMOVECOMPLETE = 0x8004
 
-
+##
+# @brief Returns a list of currently connected removable USB drives.
+# @return List of removable drive letters (e.g., ['E:\\', 'F:\\']).
 def get_removable_drives():
     """Returns list of currently attached USB drives."""
     drives = [i for i in win32api.GetLogicalDriveStrings().split('\\\x00') if i]
     return [d for d in drives if win32file.GetDriveType(d) == win32con.DRIVE_REMOVABLE]
 
-
+##
+# @brief Searches for a private key file on the given drive.
+# @param drive The root path of the USB drive to search.
+# @return Full path to the found key file or None if not found.
 def find_key_file(drive):
     """Searches for path to the private key on a drive."""
     for root, _, files in os.walk(drive):
@@ -29,41 +40,52 @@ def find_key_file(drive):
                 return os.path.join(root, file)
     return None
 
-
+##
+# @class USBMonitor
+# @brief Class responsible for detecting USB plug/unplug events on Windows.
+#
+# Uses a hidden window to listen for system device change notifications.
+# Can identify USB drives containing private keys and notify the GUI.
 class USBMonitor:
     """Class to watch for USB events (plug/unplug)."""
+    
+    ##
+    # @brief Initializes the USBMonitor.
+    # @param update_ui Callback function to update UI on key detection.
     def __init__(self, update_ui):
         # Handle for hidden window - detection USB plug/unplug
         self.hwnd = None
 
-        # Store initially connected drivers.
+        # Store initially connected drives.
         self.current_drives = get_removable_drives()
 
         self.key_file_path = None
         self.key_file_drive = None
-        # Update UI
+
+        # Callback to update the UI
         self.update_ui = update_ui
 
+    ##
+    # @brief Starts monitoring USB events in a background thread.
     def start_monitoring(self):
         """Monitoring USB plug/unplug events in a separate thread."""
         thread = threading.Thread(target=self.run_monitor, daemon=True)
         thread.start()
 
+    ##
+    # @brief Creates a hidden window and starts the message loop for USB event handling.
     def run_monitor(self):
         """Set up the Windows event loop to monitor USB devices."""
-        # https://learn.microsoft.com/en-us/windows/win32/learnwin32/creating-a-window
-        # https://www.programcreek.com/python/index/322/win32gui
-
-        # https://learn.microsoft.com/en-us/previous-versions/ms942860(v=msdn.10)
         wc = win32gui.WNDCLASS()
         wc.lpfnWndProc = self.window_proc
         wc.lpszClassName = "USBMonitorWindow"
         wc.hInstance = win32gui.GetModuleHandle(None)
         class_atom = win32gui.RegisterClass(wc)
-        # https://learn.microsoft.com/en-us/previous-versions/ms959988(v=msdn.10)
         self.hwnd = win32gui.CreateWindow(class_atom, "USB Monitor", 0, 0, 0, 0, 0, 0, 0, wc.hInstance, None)
         win32gui.PumpMessages()
 
+    ##
+    # @brief Handles Windows messages for USB plug/unplug events.
     def window_proc(self, hwnd, msg, wparam, lparam):
         """Handle Windows messages related to USB plug/unplug events."""
         if msg == WM_DEVICECHANGE:
@@ -73,6 +95,8 @@ class USBMonitor:
                 self.handle_usb_unplug()
         return 0
 
+    ##
+    # @brief Handles logic for when a USB device is plugged in.
     def handle_usb_plug(self):
         """Handles USB plug-in event and checks for private keys."""
         new_drives = get_removable_drives()
@@ -91,6 +115,8 @@ class USBMonitor:
 
         self.current_drives = new_drives
 
+    ##
+    # @brief Handles logic for when a USB device is unplugged.
     def handle_usb_unplug(self):
         """Handles USB unplug event and determines which drive was removed."""
         new_drives = get_removable_drives()
@@ -103,6 +129,8 @@ class USBMonitor:
                 self.update_ui(False)
         self.current_drives = new_drives
 
+    ##
+    # @brief On application start, checks already connected USBs for private keys.
     def initial_key_check(self):
         """Search already plugged in USB drives for private key on startup."""
         found_key = False
@@ -117,8 +145,14 @@ class USBMonitor:
 
         self.update_ui(found_key)
 
+    ##
+    # @brief Returns the full path to the detected private key file.
+    # @return String containing the file path, or None.
     def get_key_file_path(self):
         return self.key_file_path
 
+    ##
+    # @brief Returns the drive letter of the USB containing the private key.
+    # @return String containing the drive letter, or None.
     def get_key_file_drive(self):
         return self.key_file_drive
